@@ -4,6 +4,6 @@ public class Stepik
 {
 	public static void Main()
 	{
-		Unipolar_neighbors.Unipolar();
+		The_index_of_the_minimum_element.Index();
 	}
 }
