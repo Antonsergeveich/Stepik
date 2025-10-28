@@ -4,6 +4,6 @@ public class Stepik
 {
 	public static void Main()
 	{
-		Pal.Yes();
+		Various_elements.Various();
 	}
 }
