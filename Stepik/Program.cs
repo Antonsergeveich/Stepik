@@ -4,6 +4,6 @@ public class Stepik
 {
 	public static void Main()
 	{
-		The_builder_Andrey.Builder();
+		Number_of_minimums.Minimums();
 	}
 }
