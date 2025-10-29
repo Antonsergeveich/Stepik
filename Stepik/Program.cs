@@ -4,6 +4,6 @@ public class Stepik
 {
 	public static void Main()
 	{
-		Captcha.Cap();
+		The_builder_Andrey.Builder();
 	}
 }
