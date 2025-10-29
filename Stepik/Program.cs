@@ -4,6 +4,6 @@ public class Stepik
 {
 	public static void Main()
 	{
-		Number_of_minimums.Minimums();
+		Grocery_store_on_the_couch.Grocery();
 	}
 }
