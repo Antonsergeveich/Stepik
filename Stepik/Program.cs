@@ -4,6 +4,6 @@ public class Stepik
 {
 	public static void Main()
 	{
-		Julia_and_Angelina.And();
+		Rubles_and_kopecks.RB();
 	}
 }
