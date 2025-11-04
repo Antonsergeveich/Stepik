@@ -4,14 +4,37 @@ public class TicTacToe
 {
 	public static void Toe()
 	{
+		bool exitProgram = false;
+		while (!exitProgram)
+		{
+
+		}
 		string[,] map = new string[3, 3]
 		{
-			{"1", "2", "O"},
+			{"1", "2", "3"},
 			{"4", "5", "6"},
-			{"X", "8", "9"}
+			{"7", "8", "9"}
 		};
+		bool isZeroNow = false;
+		for (int i = 0; i < 9; i++)
+		{
+			if (isZeroNow) Console.WriteLine("Ходят нолики");
+			else Console.WriteLine("Ходят крестики");
+			PrintMap(map);
+			Console.WriteLine("Введите цифру вашего хода:");
+			string cellNumber = GetPlayerCellNumber(map);
+			MakeMove(map, cellNumber,isZeroNow);
+			if (HasWinner(map))
+			{
+				PrintMap(map);
+				if (isZeroNow) Console.WriteLine("Нолики победили!");
+				else Console.WriteLine("Крестики победили!");
+				return;
+			}
+			isZeroNow = !isZeroNow;
+		}
 		PrintMap(map);
-
+		Console.WriteLine("Ничья!");
 	}
 
 	static void PrintMap(string[,] map)
@@ -69,5 +92,16 @@ public class TicTacToe
 			}
 			return symbol;
 		}
+	}
+	static bool HasWinner(string[,] map)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			if (map[i, 0] == map[i, 1] && map[i, 1] == map[i, 2] && map[i, 0] != "") return true;
+			if (map[0, i] == map[1, i] && map[1, i] == map[2, i] && map[0, i] != "") return true;
+		}
+		if (map[0, 0] == map[1, 1] && map[1, 1] == map[2, 2] && map[0, 0] != "") return true;
+		if (map[0, 2] == map[1, 1] && map[1, 1] == map[2, 0] && map[0, 2] != "") return true;
+		return false;
 	}
 }
