@@ -7,41 +7,59 @@ public class TicTacToe
 		bool exitProgram = false;
 		while (!exitProgram)
 		{
+			Console.WriteLine("=== Крестики Нолики ===");
+			Console.WriteLine("1 - Новая Игра");
+			Console.WriteLine("2 - Выход");
+			Console.WriteLine("Введите 1 или 2 для выбора:");
 
-		}
-		string[,] map = new string[3, 3]
-		{
-			{"1", "2", "3"},
-			{"4", "5", "6"},
-			{"7", "8", "9"}
-		};
-		bool isZeroNow = false;
-		for (int i = 0; i < 9; i++)
-		{
-			if (isZeroNow) Console.WriteLine("Ходят нолики");
-			else Console.WriteLine("Ходят крестики");
-			PrintMap(map);
-			Console.WriteLine("Введите цифру вашего хода:");
-			string cellNumber = GetPlayerCellNumber(map);
-			MakeMove(map, cellNumber,isZeroNow);
-			if (HasWinner(map))
+			string? menuChoice = Console.ReadLine();
+			if (menuChoice == "1")
 			{
-				PrintMap(map);
-				if (isZeroNow) Console.WriteLine("Нолики победили!");
-				else Console.WriteLine("Крестики победили!");
-				return;
+				string[,] map = new string[3, 3]
+				{
+					{"1", "2", "3"},
+					{"4", "5", "6"},
+					{"7", "8", "9"}
+				};
+				bool isZeroNow = false;
+				for (int i = 0; i < 9; i++)
+				{
+					if (isZeroNow) Console.WriteLine("Ходят нолики");
+					else Console.WriteLine("Ходят крестики");
+					PrintMap(map);
+					Console.WriteLine("Введите цифру вашего хода:");
+					string cellNumber = GetPlayerCellNumber(map);
+					MakeMove(map, cellNumber, isZeroNow);
+					if (HasWinner(map))
+					{
+						PrintMap(map);
+						if (isZeroNow) Console.WriteLine("Нолики победили!");
+						else Console.WriteLine("Крестики победили!");
+						Console.WriteLine("Нажмите любую клавишу чтобы продолжить...");
+						Console.ReadKey();
+						break;
+					}
+					isZeroNow = !isZeroNow;
+				}
+				if (!HasWinner(map))
+				{
+					PrintMap(map);
+					Console.WriteLine("Ничья!");
+					Console.WriteLine("Нажмите любую клавишу чтобы продолжить...");
+					Console.ReadKey();
+				}
 			}
-			isZeroNow = !isZeroNow;
+			else if (menuChoice == "2") exitProgram = true;
+			else Console.WriteLine("Неверный выбор!");
+			Console.Clear();
 		}
-		PrintMap(map);
-		Console.WriteLine("Ничья!");
 	}
 
 	static void PrintMap(string[,] map)
 	{
 		int rows = map.GetLength(0);
 		int cols = map.GetLength(1);
-
+		
 		for (int i = 0; i < rows; i++)
 		{
 			for (int j = 0; j < cols; j++)
