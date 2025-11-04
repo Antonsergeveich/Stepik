@@ -59,18 +59,21 @@ public class TicTacToe
 	{
 		int rows = map.GetLength(0);
 		int cols = map.GetLength(1);
-		
+		Console.WriteLine("-------------");
 		for (int i = 0; i < rows; i++)
 		{
+			Console.Write("| ");
 			for (int j = 0; j < cols; j++)
 			{
 				string symbol = map[i, j];
 				if (symbol == "X") Console.ForegroundColor = ConsoleColor.Red;
 				else if (symbol == "O") Console.ForegroundColor = ConsoleColor.Blue;
-				Console.Write(symbol + " ");
+				Console.Write(symbol);
 				Console.ResetColor();
+				Console.Write(" | ");
 			}
 			Console.WriteLine();
+			Console.WriteLine("-------------");
 		}
 	}
 
